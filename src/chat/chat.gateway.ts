@@ -1,4 +1,4 @@
-import { OnGatewayConnection, OnGatewayDisconnect, OnGatewayInit, WebSocketGateway, WebSocketServer } from "@nestjs/websockets";
+import { OnGatewayConnection, OnGatewayDisconnect, OnGatewayInit, SubscribeMessage, WebSocketGateway, WebSocketServer } from "@nestjs/websockets";
 import { Server } from "socket.io";
 
 @WebSocketGateway({cors:{origin:"*"}})
@@ -16,5 +16,12 @@ export class ChatGateway implements OnGatewayInit, OnGatewayConnection,OnGateway
     const {sockets}= this.server.sockets
     console.log(`Client Id : ${client.id} Disconnected`)
     console.log(`Online User: ${sockets.size}`)
+  }
+
+  @SubscribeMessage('ping')
+  PingPongHandler(client:any,data:any){
+    console.log(`message resived by id : ${client.id}` )
+    console.log('data:',data)
+    client.emit("pong",{message:"hello js step mom from by nest gang js"})
   }
 }
