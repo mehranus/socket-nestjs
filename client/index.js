@@ -16,14 +16,16 @@ socket.on("connect",()=>{
 })
 socket.on('client_chat',(data)=>{
   console.log(data)
+
    const {user,message:msg,time,}=data
+   console.log("ddddd",username === user.username)
   const message=`
-   <div class="message ${username === user.username ? "sent" : "received"}">${msg}</div>
+   <div class="message" ${username === user.username ? "sent" : "received"}>${msg}</div>
       
   `
   messages.push(message)
   document.getElementById("chatWindow").innerHTML=messages.join('')
-  msg
+  msgInput.value=""
 })
 
 socket.on('error',(data)=>{
