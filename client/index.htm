@@ -4,9 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.min.js" integrity="sha512-8ExARjWWkIllMlNzVg7JKq9RKWPlJABQUNq6YvAjE/HobctjH/NA+bSiDMDvouBVjp4Wwnf1VP1OEv7Zgjtuxw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="./css/style.css">
   <title>chat gateway</title>
 </head>
 <body>
+
+  <div class="chat-container">
+    <div class="chat-header">
+        <img src="./css//image/boy.png" alt="Avatar" class="avatar">
+        <h3 class="username">مهران</h3>
+        <span class="status">آنلاین</span>
+    </div>
+    <div class="chat-window" id="chatWindow">
+        <div class="message received">سلام! چطور میتونم کمکتون کنم؟</div>
+        <div class="message sent">یک سوال درباره پروژه دارم.</div>
+    </div>
+    <div class="chat-input">
+        <input type="text" id="messageInput" placeholder="پیام خود را بنویسید...">
+        <button>
+            <img src="./css/image/send.png" alt="Send" class="send-icon">
+        </button>
+    </div>
+</div>
   
 
 <script src="./channel.js"></script>
