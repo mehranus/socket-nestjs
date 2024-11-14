@@ -23,6 +23,7 @@ socket.on('client_chat',(data)=>{
   `
   messages.push(message)
   document.getElementById("chatWindow").innerHTML=messages.join('')
+  msg
 })
 
 socket.on('error',(data)=>{
