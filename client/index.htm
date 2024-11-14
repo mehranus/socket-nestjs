@@ -12,23 +12,23 @@
   <div class="chat-container">
     <div class="chat-header">
         <img src="./css//image/boy.png" alt="Avatar" class="avatar">
-        <h3 class="username">مهران</h3>
+        <h3 id="username"></h3>
         <span class="status">آنلاین</span>
     </div>
     <div class="chat-window" id="chatWindow">
         <div class="message received">سلام! چطور میتونم کمکتون کنم؟</div>
-        <div class="message sent">یک سوال درباره پروژه دارم.</div>
+        <div id="msg_sent" class="message sent">یک سوال درباره پروژه دارم.</div>
     </div>
     <div class="chat-input">
         <input type="text" id="messageInput" placeholder="پیام خود را بنویسید...">
         <button>
-            <img src="./css/image/send.png" alt="Send" class="send-icon">
+            <img src="./css/image/send.png" alt="Send" id="sendBtn" class="send-icon">
         </button>
     </div>
 </div>
   
-
-<script src="./channel.js"></script>
+<script src="./index.js"></script>
+<!-- <script src="./channel.js"></script>
 <script src="./gurop.js"></script>
 <script>
   const socket=io('http://localhost:3000')
@@ -45,6 +45,8 @@
   socket.on("disconnect",()=>{
     console.log("disconect")
   })
-</script>
+</script> -->
+
+
 </body>
 </html>

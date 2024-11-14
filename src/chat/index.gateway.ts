@@ -9,6 +9,7 @@ export class indexGateway{
 
   @SubscribeMessage("join_room")
   async joinRoom(@ConnectedSocket() client:Socket,@MessageBody() data:JoinPaylod){
+    
     if(client.id && data?.roomName){
         if(client.rooms.has(data.roomName)){
             console.log("allredy join in : "+data.roomName)
@@ -21,11 +22,10 @@ export class indexGateway{
 
   }
 
-  @SubscribeMessage("server-chat")
-  async serverChat(@ConnectedSocket() client:Socket,data:Message){
-
+  @SubscribeMessage("server_chat")
+  async serverChat(@ConnectedSocket() client:Socket,@MessageBody()data:Message){
     if(data.roomName){
-      return this.server.to(data.roomName).emit("client-chat",data)
+      return this.server.to(data.roomName).emit("client_chat",data)
     }
     return client.emit("error","room not found")
   }
